@@ -37,8 +37,13 @@ const markup = (title: string, pubDate: string) =>
 		</div>
 		<div tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl">
 			<div tw="flex items-center">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 24 24" shape-rendering="crispEdges">
-					<metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+				<svg
+					height="60"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 -0.5 24 24"
+					shape-rendering="crispEdges"
+				>
 					<path
 						stroke="#b04304"
 						d="M10 2h1M9 3h1M8 4h1M15 4h1M7 5h1M14 5h1M17 5h1M6 6h1M10 6h1M17 6h1M5 7h1M10 7h1M13 7h1M5 8h1M10 8h1M13 8h1M4 9h1M13 9h1M4 10h1M13 10h1M10 11h1M10 12h1M13 12h1M10 13h1M16 13h1M10 14h1M8 15h1M13 15h1M18 15h1M6 16h1M14 16h1M18 16h1M5 17h1M10 17h1M14 17h1M18 17h1M5 18h1M10 18h1M14 18h1M18 18h1M5 19h1M10 19h1M14 19h1M18 19h1M6 20h1M14 20h1M9 21h1"
