@@ -1,4 +1,5 @@
 <script>
+	import { theme } from "../stores/theme";
 	class ThemeToggle extends HTMLElement {
 		constructor() {
 			super();
@@ -17,6 +18,8 @@
 								theme: isPressed ? "light" : "dark",
 							},
 						});
+
+						theme.set(isPressed ? "light" : "dark");
 						// dispatch event -> ThemeProvider.astro
 						document.dispatchEvent(themeChangeEvent);
 						// toggle the aria-pressed attribute
@@ -103,11 +106,11 @@
 
 {/* Inlined to avoid FOUC on full page load, runs once to set initial attribute */}
 <script is:inline>
-	const button = document.getElementById("toggle-theme");
+const button = document.getElementById("toggle-theme");
 
-	function setButtonPresssed() {
-		const bodyThemeIsDark = document.documentElement.classList.contains("dark");
-		button.setAttribute("aria-pressed", String(bodyThemeIsDark));
-	}
-	setButtonPresssed();
+function setButtonPresssed() {
+	const bodyThemeIsDark = document.documentElement.classList.contains("dark");
+	button.setAttribute("aria-pressed", String(bodyThemeIsDark));
+}
+setButtonPresssed();
 </script>

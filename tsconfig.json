@@ -3,6 +3,8 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"verbatimModuleSyntax": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
 		"paths": {
 			"@/assets/*": ["src/assets/*"],
 			"@/components/*": ["src/components/*.astro"],

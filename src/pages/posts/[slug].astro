@@ -2,6 +2,7 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import PostLayout from "@/layouts/BlogPost";
 import { getAllPosts } from "@/utils";
+import Comments from "src/components/blog/Comments";
 
 export const getStaticPaths = (async () => {
 	const blogEntries = await getAllPosts();
@@ -19,20 +20,5 @@ const { Content } = await entry.render();
 
 <PostLayout post={entry}>
 	<Content />
-	<script
-		src="https://giscus.app/client.js"
-		data-repo="d4mr/d4mr.github.io"
-		data-repo-id="R_kgDOKU7qjQ"
-		data-category="giscus"
-		data-category-id="DIC_kwDOKU7qjc4CZZ80"
-		data-mapping="pathname"
-		data-strict="0"
-		data-reactions-enabled="1"
-		data-emit-metadata="0"
-		data-input-position="top"
-		data-theme="transparent_dark"
-		data-lang="en"
-		data-loading="lazy"
-		crossorigin="anonymous"
-		async></script>
+	<Comments client:only />
 </PostLayout>

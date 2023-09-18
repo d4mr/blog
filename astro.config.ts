@@ -8,13 +8,19 @@ import remarkUnwrapImages from "remark-unwrap-images";
 // @ts-ignore:next-line
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
 	site: "https://d4mr.github.io/",
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-		remarkRehype: { footnoteLabelProperties: { className: [""] } },
+		remarkRehype: {
+			footnoteLabelProperties: {
+				className: [""],
+			},
+		},
 		shikiConfig: {
 			theme: "dracula",
 			wrap: true,
@@ -27,6 +33,9 @@ export default defineConfig({
 		}),
 		sitemap(),
 		prefetch(),
+		preact({
+			compat: true,
+		}),
 	],
 	vite: {
 		plugins: [rawFonts([".ttf"])],
@@ -35,7 +44,6 @@ export default defineConfig({
 		},
 	},
 });
-
 function rawFonts(ext: Array<string>) {
 	return {
 		name: "vite-plugin-raw-fonts",
