@@ -1,16 +1,16 @@
 {
-	"name": "Astro Theme Cactus Demo",
-	"short_name": "Astro_Cactus",
-	"description": "Starter blog site for Astro",
+	"name": "Prithvish Baidya's Blog",
+	"short_name": "blog@d4mr",
+	"description": "The personal blog of Prithvish Baidya aka d4mr aka earthish",
 	"icons": [
 		{
-			"src": "/192x192.png",
-			"sizes": "192x192",
+			"src": "/small_logo.png",
+			"sizes": "24x24",
 			"type": "image/png"
 		},
 		{
-			"src": "/512x512.png",
-			"sizes": "512x512",
+			"src": "/large_logo.png",
+			"sizes": "384x384",
 			"type": "image/png"
 		}
 	],

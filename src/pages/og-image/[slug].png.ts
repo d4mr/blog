@@ -37,20 +37,16 @@ const markup = (title: string, pubDate: string) =>
 		</div>
 		<div tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl">
 			<div tw="flex items-center">
-				<svg height="60" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 480">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 24 24" shape-rendering="crispEdges">
+					<metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
 					<path
-						d="M181.334 93.333v-40L226.667 80v40l-45.333-26.667ZM136.001 53.333 90.667 26.667v426.666L136.001 480V53.333Z"
-						fill="#B04304"
-					></path>
+						stroke="#b04304"
+						d="M10 2h1M9 3h1M8 4h1M15 4h1M7 5h1M14 5h1M17 5h1M6 6h1M10 6h1M17 6h1M5 7h1M10 7h1M13 7h1M5 8h1M10 8h1M13 8h1M4 9h1M13 9h1M4 10h1M13 10h1M10 11h1M10 12h1M13 12h1M10 13h1M16 13h1M10 14h1M8 15h1M13 15h1M18 15h1M6 16h1M14 16h1M18 16h1M5 17h1M10 17h1M14 17h1M18 17h1M5 18h1M10 18h1M14 18h1M18 18h1M5 19h1M10 19h1M14 19h1M18 19h1M6 20h1M14 20h1M9 21h1"
+					/>
 					<path
-						d="m136.001 119.944 45.333-26.667 45.333 26.667-45.333 26.667-45.333-26.667ZM90.667 26.667 136.001 0l45.333 26.667-45.333 26.666-45.334-26.666ZM181.334 53.277l45.333-26.666L272 53.277l-45.333 26.667-45.333-26.667ZM0 213.277l45.333-26.667 45.334 26.667-45.334 26.667L0 213.277ZM136 239.944l-45.333-26.667v53.333L136 239.944Z"
-						fill="#FF5D01"
-					></path>
-					<path
-						d="m136 53.333 45.333-26.666v120L226.667 120V80L272 53.333V160l-90.667 53.333v240L136 480V306.667L45.334 360V240l45.333-26.667v53.334L136 240V53.333Z"
-						fill="#53C68C"
-					></path>
-					<path d="M45.334 240 0 213.334v120L45.334 360V240Z" fill="#B04304"></path>
+						stroke="#53c68c"
+						d="M11 2h1M10 3h2M9 4h3M16 4h3M8 5h5M15 5h2M18 5h1M7 6h2M11 6h5M18 6h1M6 7h2M11 7h1M14 7h1M6 8h1M11 8h1M14 8h1M5 9h7M14 9h1M5 10h7M14 10h1M11 11h5M11 12h1M14 12h1M11 13h2M17 13h2M11 14h9M9 15h3M14 15h3M19 15h1M7 16h5M15 16h1M19 16h1M6 17h2M11 17h1M15 17h1M19 17h1M6 18h1M11 18h1M15 18h1M19 18h1M6 19h1M11 19h1M15 19h1M19 19h1M7 20h5M15 20h1M10 21h2"
+					/>
 				</svg>
 				<p tw="ml-3 font-semibold">${siteConfig.title}</p>
 			</div>
