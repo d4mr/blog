@@ -29,7 +29,9 @@ export default {
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: [...fontFamily.sans],
+				header: ["Space Grotesk", ...fontFamily.mono],
+				mono: ["JetBrains Mono", ...fontFamily.mono],
+				sans: ["JetBrains Mono", ...fontFamily.sans],
 				serif: [...fontFamily.serif],
 			},
 			transitionProperty: {
