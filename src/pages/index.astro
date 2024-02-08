@@ -3,53 +3,11 @@ import PageLayout from "@/layouts/Base";
 import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
 import { getAllPosts, sortMDByDate } from "@/utils";
+import Icon from "astro-icon";
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
-
-const cactusTech: Array<{ title: string; desc: string; href: string }> = [
-	{
-		title: "Astro",
-		desc: "Build fast websites, faster.",
-		href: "https://astro.build",
-	},
-	{
-		title: "Astro Assets",
-		desc: "Built-in optimized asset support.",
-		href: "https://docs.astro.build/en/guides/assets/",
-	},
-	{
-		title: "Tailwind CSS",
-		desc: "Rapidly build modern websites without ever leaving your HTML.",
-		href: "https://tailwindcss.com",
-	},
-	{
-		title: "Markdown",
-		desc: "Simple and easy-to-use markup language.",
-		href: "https://www.markdownguide.org/",
-	},
-	{
-		title: "MDX",
-		desc: "Markdown for the component era.",
-		href: "https://mdxjs.com/",
-	},
-	{
-		title: "Satori",
-		desc: "Generating png Open Graph images for blog posts.",
-		href: "https://github.com/vercel/satori",
-	},
-	{
-		title: "Pagefind",
-		desc: "A fully static search library.",
-		href: "https://pagefind.app/",
-	},
-	{
-		title: "Astro Icon",
-		desc: "An easy to use Icon component for Astro.",
-		href: "https://github.com/natemoo-re/astro-icon#readme",
-	},
-];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -79,23 +37,26 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 		</ul>
 	</section>
 	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Technologies</h2>
-		<ul class="space-y-4 sm:space-y-2">
-			{
-				cactusTech.map(({ href, title, desc }) => (
-					<li>
-						<a
-							href={href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="cactus-link inline-block"
-						>
-							{title}
-						</a>
-						:<p class="inline-block sm:mt-2">{desc}</p>
-					</li>
-				))
-			}
-		</ul>
+		<h2 class="title mb-4 text-xl">Projects</h2>
+		<a href="https://github.com/d4mr/bother" target="_blank">
+			<div
+				class="relative grid divide-x divide-solid divide-accent/20 border border-accent/20 sm:h-52 sm:grid-cols-[2fr_3fr]"
+			>
+				<Icon name="mdi:arrow-top-right" class="absolute right-0 h-6 text-accent" />
+				<img
+					src="https://camo.githubusercontent.com/bdf95bca0e71dfd3fcb0ef4a4a82fafaaeb7432119a4ddd07c2cbf21e07bb17c/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f647232786c756d71772f696d6167652f75706c6f61642f665f6175746f2c715f6175746f2f6e653779686b6878726c37796e33656b78706c61"
+					alt="bother project"
+					class="h-full w-auto object-cover"
+				/>
+				<div class="px-2 py-4 text-sm sm:px-8">
+					<h3 class="mb-2 text-lg font-semibold">bother</h3>
+					<p>bother is a free open source toolkit for batch processing images in the browser.</p>
+					<p>
+						it currently supports batch padding for images to get them to the same aspect ratio, and
+						more features are being developed active.
+					</p>
+				</div>
+			</div>
+		</a>
 	</section>
 </PageLayout>
