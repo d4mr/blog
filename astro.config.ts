@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import { fs } from "fs";
+import fs from "fs";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
