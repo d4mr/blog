@@ -1,31 +1,47 @@
 {/* Inlined to avoid FOUC. */}
 <script is:inline>
-function getUserPref() {
-	const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
-	return (
-		storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
-	);
-}
+	const lightModePref = window.matchMedia("(prefers-color-scheme: light)");
 
-function setTheme(theme) {
-	const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
-	document.documentElement.classList.toggle("dark", theme === "dark");
-	const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
-
-	colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
-	if (typeof localStorage !== "undefined") {
-		localStorage.setItem("theme", theme);
+	function getUserPref() {
+		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+		return storedTheme || (lightModePref.matches ? "light" : "dark");
 	}
-}
 
-// initial setup
-setTheme(getUserPref());
+	function setTheme(newTheme) {
+		if (newTheme !== "light" && newTheme !== "dark") {
+			return console.warn(
+				`Invalid theme value '${newTheme}' received. Expected 'light' or 'dark'.`
+			);
+		}
 
-// View Transitions hook to restore theme mode
-document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+		const root = document.documentElement;
 
-// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
-document.addEventListener("theme-change", (e) => {
-	setTheme(e.detail.theme);
-});
+		// root already set to newTheme, exit early
+		if (newTheme === root.getAttribute("data-theme")) {
+			return;
+		}
+
+		root.setAttribute("data-theme", newTheme);
+
+		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
+		if (typeof localStorage !== "undefined") {
+			localStorage.setItem("theme", newTheme);
+		}
+	}
+
+	// initial setup
+	setTheme(getUserPref());
+
+	// View Transitions hook to restore theme
+	document.addEventListener("astro:after-swap", () => setTheme(getUserPref()));
+
+	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
+	document.addEventListener("theme-change", (e) => {
+		setTheme(e.detail.theme);
+	});
+
+	// listen for prefers-color-scheme change.
+	lightModePref.addEventListener("change", (e) => setTheme(e.matches ? "light" : "dark"));
 </script>

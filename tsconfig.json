@@ -2,15 +2,13 @@
 	"extends": "astro/tsconfigs/strictest",
 	"compilerOptions": {
 		"baseUrl": ".",
-		"verbatimModuleSyntax": true,
-		"jsx": "react-jsx",
-		"jsxImportSource": "preact",
+		"lib": ["es2022", "dom", "dom.iterable"],
 		"paths": {
 			"@/assets/*": ["src/assets/*"],
-			"@/components/*": ["src/components/*.astro"],
-			"@/layouts/*": ["src/layouts/*.astro"],
+			"@/components/*": ["src/components/*"],
+			"@/data/*": ["src/data/*"],
+			"@/layouts/*": ["src/layouts/*"],
 			"@/utils": ["src/utils/index.ts"],
-			"@/stores/*": ["src/stores/*"],
 			"@/types": ["src/types.ts"],
 			"@/site-config": ["src/site.config.ts"]
 		}

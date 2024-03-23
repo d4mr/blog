@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
+	:root,
+	:root[data-theme="light"] {
 		color-scheme: light;
 		/* https://tailwindcss.com/docs/customizing-colors#using-css-variables */
 		--theme-bg: 0deg 0% 98%;
