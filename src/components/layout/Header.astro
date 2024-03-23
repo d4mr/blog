@@ -6,29 +6,6 @@ import { menuLinks } from "@/site-config";
 const url = new URL(Astro.request.url);
 ---
 
-<script>
-	import { toggleClass } from "@/utils";
-	let headerEl: HTMLElement;
-	let menuButtonEl: HTMLButtonElement;
-	let menuOpen = false;
-
-	function toggleMobileMenu() {
-		toggleClass(headerEl, "menu-open");
-		menuOpen = !menuOpen;
-		menuButtonEl.setAttribute("aria-expanded", menuOpen.toString());
-	}
-
-	document.addEventListener("DOMContentLoaded", () => {
-		headerEl = document.getElementById("main-header")!;
-		menuButtonEl = document.getElementById("toggle-navigation-menu") as HTMLButtonElement;
-		menuButtonEl.addEventListener("click", toggleMobileMenu);
-	});
-
-	document.addEventListener("astro:after-swap", () => {
-		if (menuOpen) toggleMobileMenu();
-	});
-</script>
-
 <header
 	id="main-header"
 	class="group relative mb-28 flex items-center sm:ps-[4.5rem]"
