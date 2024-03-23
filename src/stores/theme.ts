@@ -1,6 +1,6 @@
 import { atom } from "nanostores";
 
-export const theme = atom<"dark" | "light">(
+export const $theme = atom<"dark" | "light">(
 	(() => {
 		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
 		return (storedTheme ||
