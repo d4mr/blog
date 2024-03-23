@@ -57,7 +57,8 @@
 
 <script>
 	// Note that if you fire the theme-change event outside of this component, it will not be reflected in the button's aria-checked attribute
-	import { rootInDarkMode } from "@/utils";
+	import { $theme } from "@/stores/theme";
+import { rootInDarkMode } from "@/utils";
 
 	class ThemeToggle extends HTMLElement {
 		#controller: AbortController | undefined;
@@ -85,6 +86,7 @@
 
 					// set the aria-checked attribute
 					button.setAttribute("aria-checked", String(rootInDarkMode()));
+					$theme.set(rootInDarkMode() ? "dark" : "light");
 				},
 				{ signal }
 			);

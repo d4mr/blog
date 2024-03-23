@@ -1,9 +1,11 @@
 import Giscus from "@giscus/react";
 import { useStore } from "@nanostores/preact";
-import { theme } from "@/stores/theme";
+import { $theme } from "@/stores/theme";
 
-const Comments = () => {
-	const $isDarkMode = useStore(theme) === "dark";
+export default function Comments()  {
+	const isDarkMode = useStore($theme) === "dark";
+
+	console.log(isDarkMode);
 
 	return (
 		<Giscus
@@ -17,11 +19,9 @@ const Comments = () => {
 			reactionsEnabled="1"
 			emitMetadata="0"
 			inputPosition="top"
-			theme={$isDarkMode ? "transparent_dark" : "light"}
+			theme={isDarkMode ? "transparent_dark" : "light"}
 			lang="en"
 			loading="lazy"
 		/>
 	);
 };
-
-export default Comments;
