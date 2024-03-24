@@ -2,10 +2,8 @@ import Giscus from "@giscus/react";
 import { useStore } from "@nanostores/preact";
 import { $theme } from "@/stores/theme";
 
-export default function Comments()  {
+export default function Comments() {
 	const isDarkMode = useStore($theme) === "dark";
-
-	console.log(isDarkMode);
 
 	return (
 		<Giscus
@@ -24,4 +22,4 @@ export default function Comments()  {
 			loading="lazy"
 		/>
 	);
-};
+}
