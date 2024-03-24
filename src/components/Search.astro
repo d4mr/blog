@@ -115,6 +115,8 @@ import "@pagefind/default-ui/css/ui.css";
 			if (import.meta.env.DEV) return;
 			const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
 			onIdle(async () => {
+				// remove contents of #cactus__search
+				document.getElementById("cactus__search")!.innerHTML = "";
 				const { PagefindUI } = await import("@pagefind/default-ui");
 				new PagefindUI({
 					baseUrl: import.meta.env.BASE_URL,
